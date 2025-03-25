@@ -17,23 +17,23 @@ export function Hero() {
         id="canvas"
       ></canvas>
       
-      <div className="container relative z-10 mx-auto px-4 pt-24 md:pt-36">
+      <div className="container relative z-10 mx-auto px-4 pt-20 md:pt-24 lg:pt-36">
         <div className="mx-auto max-w-5xl text-center">
-          <h1 className="mb-8 opacity-0 animate-fadeIn" style={{ animationDelay: "300ms" }}>
-            <span className="block text-4xl font-bold text-mediarch sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mb-6 md:mb-8 opacity-0 animate-fadeIn" style={{ animationDelay: "300ms" }}>
+            <span className="block text-3xl font-bold text-mediarch sm:text-4xl md:text-5xl lg:text-7xl">
               Play the Part.
             </span>
-            <span className="mt-2 block text-4xl font-bold bg-gradient-to-r from-mediarch to-mediarch-orange text-transparent bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl" style={{ backgroundSize: "200% 200%" }}>
+            <span className="mt-2 block text-3xl font-bold bg-gradient-to-r from-mediarch to-mediarch-orange text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-7xl" style={{ backgroundSize: "200% 200%" }}>
               Master the Art
             </span>
           </h1>
           
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300 opacity-0 animate-fadeIn" style={{ animationDelay: "600ms" }}>
+          <p className="mx-auto mt-4 md:mt-6 max-w-2xl text-base md:text-lg text-gray-300 opacity-0 animate-fadeIn" style={{ animationDelay: "600ms" }}>
             Join the next generation of gaming excellence with Mediarch's immersive 
             events and expert-led courses. Experience gaming like never before.
           </p>
           
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
+          <div className="mt-8 md:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
             <StatsCard 
               icon={<Icons.GameController className="h-5 w-5 text-mediarch" />}
               value="50+"
@@ -46,7 +46,7 @@ export function Hero() {
             />
           </div>
           
-          <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 opacity-0 animate-fadeIn" style={{ animationDelay: "1200ms" }}>
+          <div className="mt-8 md:mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 opacity-0 animate-fadeIn" style={{ animationDelay: "1200ms" }}>
             <Link to="/about">
               <Button 
                 variant="outline" 
@@ -70,7 +70,7 @@ function StatsCard({ icon, value, label }: {
 }) {
   return (
     <div className="flex items-center justify-center space-x-3 rounded-lg border border-white/10 bg-mediarch-dark/50 backdrop-blur-sm p-4 transition-all duration-300 hover:border-mediarch/30">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-mediarch/10">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mediarch/10">
         {icon}
       </div>
       <div className="flex flex-col">

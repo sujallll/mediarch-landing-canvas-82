@@ -1,6 +1,8 @@
+
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -55,6 +57,7 @@ export function BackgroundPaths({
     title?: string;
 }) {
     const words = title.split(" ");
+    const isMobile = useIsMobile();
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
@@ -70,7 +73,7 @@ export function BackgroundPaths({
                     transition={{ duration: 2 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tighter">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tighter">
                         {words.map((word, wordIndex) => (
                             <span
                                 key={wordIndex}
@@ -84,7 +87,7 @@ export function BackgroundPaths({
                                         transition={{
                                             delay:
                                                 wordIndex * 0.1 +
-                                                letterIndex * 0.03,
+                                                letterIndex * (isMobile ? 0.02 : 0.03),
                                             type: "spring",
                                             stiffness: 150,
                                             damping: 25,
