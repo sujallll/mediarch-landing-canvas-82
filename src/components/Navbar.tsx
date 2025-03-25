@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link 
           to="/"
-          className="flex items-center text-2xl font-bold text-mediarch transition-all duration-300 hover:text-mediarch/80"
+          className="text-3xl font-bold text-mediarch transition-all duration-300 hover:text-mediarch/80"
         >
           MEDIARCH
         </Link>
@@ -70,7 +70,7 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className="relative rounded-full border border-mediarch/20 px-6 py-2 font-medium text-white transition-all duration-300 hover:border-mediarch hover:text-mediarch"
+      className="rounded-full border border-mediarch/20 px-6 py-2 font-medium text-white transition-all duration-300 hover:border-mediarch hover:text-mediarch"
     >
       {children}
     </Link>

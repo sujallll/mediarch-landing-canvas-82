@@ -161,7 +161,7 @@ function render() {
     // @ts-ignore
     ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",100%,50%,0.025)";
     // @ts-ignore
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 10;
     for (var e, t = 0; t < E.trails; t++) {
       // @ts-ignore
       (e = lines[t]).update();
@@ -175,7 +175,7 @@ function render() {
 
 function resizeCanvas() {
   // @ts-ignore
-  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.width = window.innerWidth - 20;
   // @ts-ignore
   ctx.canvas.height = window.innerHeight;
 }
