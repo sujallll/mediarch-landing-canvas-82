@@ -1,10 +1,26 @@
-
+import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-mediarch-dark py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-20 lg:py-32">
+      {/* Video Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video 
+          className="h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="https://videos.pexels.com/video-files/2930943/2930943-hd_1920_1080_25fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-mediarch-dark/60"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="container relative z-10 mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-video overflow-hidden rounded-lg">
             <img
