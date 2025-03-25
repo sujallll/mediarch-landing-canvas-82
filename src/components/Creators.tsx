@@ -1,6 +1,7 @@
 
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export function Creators() {
   return (
@@ -28,10 +29,12 @@ export function Creators() {
             </p>
           </div>
           
-          <Button className="bg-white text-mediarch-red hover:bg-white/90" size="lg">
-            Join the Creator Program
-            <Icons.ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link to="/about">
+            <Button className="bg-white text-mediarch-red hover:bg-white/90" size="lg">
+              Learn More
+              <Icons.ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
