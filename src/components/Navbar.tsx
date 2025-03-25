@@ -2,12 +2,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
-import { useAuth } from "@/contexts/AuthContext";
-import { LogIn } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { user } = useAuth();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -42,20 +39,6 @@ export default function Navbar() {
             <li>
               <NavLink to="/contact">CONTACT</NavLink>
             </li>
-            {user ? (
-              <li>
-                <NavLink to="/admin/dashboard" className="flex items-center">
-                  ADMIN
-                </NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink to="/admin/login" className="flex items-center">
-                  <LogIn size={16} className="mr-1" />
-                  ADMIN
-                </NavLink>
-              </li>
-            )}
           </ul>
         </nav>
         
