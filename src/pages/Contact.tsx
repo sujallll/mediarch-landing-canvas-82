@@ -5,6 +5,8 @@ import { Footer } from "@/components/Footer";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -24,14 +26,30 @@ const Contact = () => {
     });
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Submit to Supabase
+      const { error } = await supabase
+        .from('contacts')
+        .insert({
+          name: `${formState.firstName} ${formState.lastName}`,
+          email: formState.email,
+          message: formState.message,
+          read: false,
+          status: 'pending'
+        });
+        
+      if (error) throw error;
+        
+      // Success state
       setIsSubmitted(true);
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for contacting us. We'll get back to you soon.",
+      });
       
       // Reset form
       setFormState({
@@ -45,7 +63,15 @@ const Contact = () => {
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
-    }, 1500);
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (

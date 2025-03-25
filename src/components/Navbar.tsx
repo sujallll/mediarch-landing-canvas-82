@@ -2,9 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
+import { LogIn } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { user } = useAuth();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +42,20 @@ export default function Navbar() {
             <li>
               <NavLink to="/contact">CONTACT</NavLink>
             </li>
+            {user ? (
+              <li>
+                <NavLink to="/admin/dashboard" className="flex items-center">
+                  ADMIN
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink to="/admin/login" className="flex items-center">
+                  <LogIn size={16} className="mr-1" />
+                  ADMIN
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
         
@@ -66,11 +83,14 @@ export default function Navbar() {
   );
 }
 
-function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+function NavLink({ to, children, className }: { to: string; children: React.ReactNode; className?: string }) {
   return (
     <Link
       to={to}
-      className="rounded-full border border-mediarch/20 px-6 py-2 font-medium text-white transition-all duration-300 hover:border-mediarch hover:text-mediarch"
+      className={cn(
+        "rounded-full border border-mediarch/20 px-6 py-2 font-medium text-white transition-all duration-300 hover:border-mediarch hover:text-mediarch",
+        className
+      )}
     >
       {children}
     </Link>
