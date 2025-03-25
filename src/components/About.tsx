@@ -22,9 +22,15 @@ export function About() {
       
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-          <div className="relative aspect-video overflow-hidden rounded-lg">
-            {/* Image has been removed */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div className="flex items-center justify-center">
+            <div className="bg-mediarch-dark/60 p-6 rounded-lg border border-white/10 backdrop-blur-md w-full">
+              <h3 className="text-2xl font-bold text-mediarch mb-4">Our Commitment</h3>
+              <p className="text-gray-300 mb-4">
+                We are dedicated to creating an inclusive environment where gamers can thrive, 
+                learn from each other, and push the boundaries of what's possible in gaming.
+              </p>
+            </div>
           </div>
           
           <div>
