@@ -24,11 +24,7 @@ export function About() {
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-video overflow-hidden rounded-lg">
-            <img
-              src="/lovable-uploads/cbb4d891-2a93-4f35-a214-1ff168fb5fa5.png"
-              alt="Gamer at esports tournament"
-              className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-            />
+            {/* Image has been removed */}
           </div>
           
           <div>
