@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Creators } from "@/components/Creators";
 import { Stats } from "@/components/Stats";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -15,13 +16,7 @@ const Index = () => {
         <Creators />
         <Stats />
       </main>
-      <footer className="bg-mediarch-dark py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Mediarch. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
