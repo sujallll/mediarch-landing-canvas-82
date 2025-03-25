@@ -33,18 +33,11 @@ export function Team() {
         <h2 className="mb-12 text-center text-3xl font-bold text-mediarch sm:text-4xl">OUR TEAM</h2>
         <div className="flex flex-col items-center justify-center">
           <p className="text-white/80 text-center max-w-3xl mb-10">
-            Our passionate team brings together industry-leading expertise, 
-            creative innovation, and a deep commitment to helping creators excel 
-            in the digital landscape.
+            Our talented team combines streaming expertise with technical innovation, 
+            helping content creators build engaging live experiences that captivate audiences 
+            and grow their communities.
           </p>
           <AnimatedTooltip items={teamMembers} className="gap-8" />
-          <div className="mt-16 text-center">
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Backed by years of experience in content creation, marketing, and community 
-              building, our team is dedicated to elevating creator voices and expanding 
-              their reach across global audiences.
-            </p>
-          </div>
         </div>
       </div>
     </section>

@@ -84,10 +84,10 @@ export const AnimatedTooltip = ({
             onMouseMove={handleMouseMove}
             src={item.image}
             alt={item.name}
-            className="object-cover !m-0 !p-0 object-top rounded-full h-24 w-24 border-2 group-hover:scale-105 group-hover:z-30 border-background relative transition duration-500"
+            className="object-cover !m-0 !p-0 object-top rounded-full h-32 w-32 border-2 group-hover:scale-105 group-hover:z-30 border-background relative transition duration-500"
           />
         </div>
       ))}
     </div>
   );
-};
+}
