@@ -33,12 +33,7 @@ export function Hero() {
             events and expert-led courses. Experience gaming like never before.
           </p>
           
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
-            <StatsCard 
-              icon={<Icons.User className="h-5 w-5 text-mediarch" />}
-              value="10K+"
-              label="Active Players"
-            />
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
             <StatsCard 
               icon={<Icons.GameController className="h-5 w-5 text-mediarch" />}
               value="50+"
