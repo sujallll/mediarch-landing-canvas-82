@@ -52,15 +52,6 @@ export function Hero() {
           </div>
           
           <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 opacity-0 animate-fadeIn" style={{ animationDelay: "1200ms" }}>
-            <Link to="/register">
-              <Button 
-                className="group w-full bg-mediarch text-mediarch-dark hover:bg-mediarch/90 sm:w-auto"
-                size="lg"
-              >
-                Start Gaming 
-                <Icons.ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
             <Link to="/about">
               <Button 
                 variant="outline" 
