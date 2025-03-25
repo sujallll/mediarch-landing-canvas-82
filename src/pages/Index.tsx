@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Creators } from "@/components/Creators";
-import { Stats } from "@/components/Stats";
+import { Team } from "@/components/Team";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -14,7 +14,7 @@ const Index = () => {
         <Hero />
         <About />
         <Creators />
-        <Stats />
+        <Team />
       </main>
       <Footer />
     </div>
