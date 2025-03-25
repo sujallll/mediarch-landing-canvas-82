@@ -4,8 +4,11 @@
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-function FloatingPaths({ position }: { position: number }) {
-    const paths = Array.from({ length: 36 }, (_, i) => ({
+function FloatingPaths({ position, reducedPaths = false }: { position: number; reducedPaths?: boolean }) {
+    // Reduce the number of paths on mobile to improve performance
+    const pathCount = reducedPaths ? 12 : 36;
+    
+    const paths = Array.from({ length: pathCount }, (_, i) => ({
         id: i,
         d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
             380 - i * 5 * position
@@ -60,10 +63,10 @@ export function BackgroundPaths({
     const isMobile = useIsMobile();
 
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
+        <div className="relative min-h-[400px] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
             <div className="absolute inset-0">
-                <FloatingPaths position={1} />
-                <FloatingPaths position={-1} />
+                <FloatingPaths position={1} reducedPaths={isMobile} />
+                <FloatingPaths position={-1} reducedPaths={isMobile} />
             </div>
 
             <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
@@ -79,26 +82,44 @@ export function BackgroundPaths({
                                 key={wordIndex}
                                 className="inline-block mr-4 last:mr-0"
                             >
-                                {word.split("").map((letter, letterIndex) => (
+                                {isMobile ? (
+                                    // For mobile: simpler animation to improve performance
                                     <motion.span
-                                        key={`${wordIndex}-${letterIndex}`}
-                                        initial={{ y: 100, opacity: 0 }}
+                                        initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         transition={{
-                                            delay:
-                                                wordIndex * 0.1 +
-                                                letterIndex * (isMobile ? 0.02 : 0.03),
-                                            type: "spring",
-                                            stiffness: 150,
-                                            damping: 25,
+                                            delay: wordIndex * 0.2,
+                                            duration: 0.5
                                         }}
                                         className="inline-block text-transparent bg-clip-text 
                                         bg-gradient-to-r from-neutral-900 to-neutral-700/80 
                                         dark:from-white dark:to-white/80"
                                     >
-                                        {letter}
+                                        {word}
                                     </motion.span>
-                                ))}
+                                ) : (
+                                    // For desktop: letter-by-letter animation
+                                    word.split("").map((letter, letterIndex) => (
+                                        <motion.span
+                                            key={`${wordIndex}-${letterIndex}`}
+                                            initial={{ y: 100, opacity: 0 }}
+                                            animate={{ y: 0, opacity: 1 }}
+                                            transition={{
+                                                delay:
+                                                    wordIndex * 0.1 +
+                                                    letterIndex * 0.03,
+                                                type: "spring",
+                                                stiffness: 150,
+                                                damping: 25,
+                                            }}
+                                            className="inline-block text-transparent bg-clip-text 
+                                            bg-gradient-to-r from-neutral-900 to-neutral-700/80 
+                                            dark:from-white dark:to-white/80"
+                                        >
+                                            {letter}
+                                        </motion.span>
+                                    ))
+                                )}
                             </span>
                         ))}
                     </h1>
