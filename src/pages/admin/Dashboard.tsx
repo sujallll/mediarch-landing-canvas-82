@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -38,6 +37,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Database } from "@/integrations/supabase/types";
+
+type ContactStatus = Database["public"]["Enums"]["contact_status"];
 
 type Contact = {
   id: string;
@@ -45,7 +47,7 @@ type Contact = {
   email: string;
   message: string;
   created_at: string;
-  status: string;
+  status: ContactStatus;
   read: boolean;
 };
 
@@ -126,7 +128,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const updateContactStatus = async (contactId: string, status: string) => {
+  const updateContactStatus = async (contactId: string, status: ContactStatus) => {
     try {
       const { error } = await supabase
         .from("contacts")
