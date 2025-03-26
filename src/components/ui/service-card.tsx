@@ -51,6 +51,7 @@ export function ServiceCard({
   return (
     <motion.div
       whileHover={{ 
+        scale: 1.05,
         y: -5,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       }}

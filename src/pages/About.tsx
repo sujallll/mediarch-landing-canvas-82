@@ -73,11 +73,12 @@ const About = () => {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
+              className="flex h-full"
             >
               <ServiceCard 
                 title="Renting Pods" 
@@ -85,6 +86,7 @@ const About = () => {
                 price="399/hr"
                 icon="rocket"
                 variant="default"
+                className="w-full"
               />
             </motion.div>
             
@@ -92,6 +94,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
+              className="flex h-full"
             >
               <ServiceCard 
                 title="Bronze Package" 
@@ -99,6 +102,7 @@ const About = () => {
                 price="15,000 for 21 days"
                 icon="badge"
                 variant="bronze"
+                className="w-full"
               />
             </motion.div>
             
@@ -106,6 +110,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+              className="flex h-full"
             >
               <ServiceCard 
                 title="Silver Package" 
@@ -113,6 +118,7 @@ const About = () => {
                 price="25,000 for 21 days"
                 icon="star"
                 variant="silver"
+                className="w-full"
               />
             </motion.div>
             
@@ -120,7 +126,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="sm:col-span-2 lg:col-span-1"
+              className="sm:col-span-2 lg:col-span-1 flex h-full"
             >
               <ServiceCard 
                 title="Gold Package" 
@@ -128,6 +134,7 @@ const About = () => {
                 price="49,999 for 49 days"
                 icon="gem"
                 variant="gold"
+                className="w-full"
               />
             </motion.div>
             
@@ -135,13 +142,14 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="sm:col-span-2 lg:col-span-2"
+              className="sm:col-span-2 lg:col-span-2 flex h-full"
             >
               <ServiceCard 
                 title="Diamond Package" 
                 description="Personalized coaching, industry exposure, and full-time guidance."
                 icon="diamond"
                 variant="diamond"
+                className="w-full"
               />
             </motion.div>
           </div>
