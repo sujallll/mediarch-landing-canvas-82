@@ -16,7 +16,6 @@ const Index = () => {
         <Hero />
         <About />
         <Creators />
-        <Team />
         
         {/* Services Section */}
         <div className="bg-mediarch-dark/90 py-10 md:py-16">
@@ -115,6 +114,8 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        <Team />
       </main>
       <Footer />
     </div>
