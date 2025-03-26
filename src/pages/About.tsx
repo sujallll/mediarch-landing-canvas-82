@@ -31,18 +31,19 @@ const About = () => {
             <div className="mb-5 md:mb-6 bg-white/5 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/10">
               <h2 className="text-xl md:text-2xl font-bold text-mediarch mb-3">Our Mission</h2>
               <p className="text-sm md:text-base text-gray-300">
-                Mediarch was founded with a vision to transform the gaming landscape by bridging
-                the gap between casual gaming and professional esports. Our platform serves as a
-                hub for gamers of all skill levels to learn, compete, and grow together.
+                Our mission is to empower aspiring and professional streamers by offering tailored support, 
+                mentorship, and resources to enhance their journey. Through structured learning, industry 
+                insights, and hands-on guidance, we strive to build a thriving community that excels in 
+                digital broadcasting.
               </p>
             </div>
             
             <div className="mb-6 md:mb-8 lg:mb-12 bg-white/5 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/10">
               <h2 className="text-xl md:text-2xl font-bold text-mediarch mb-3">Our Vision</h2>
               <p className="text-sm md:text-base text-gray-300 mb-4">
-                From hosting tournaments to providing expert-led courses, we're committed to
-                elevating the gaming experience for everyone involved. Join us in shaping the
-                future of gaming.
+                At Mediarch, we envision a world where content creators and streamers have the ultimate 
+                platform to grow, learn, and thrive. We aim to bridge the gap between passion and success 
+                by providing cutting-edge resources, mentorship, and a seamless streaming experience.
               </p>
               <div className="flex justify-center">
                 <Button 
