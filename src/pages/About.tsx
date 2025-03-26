@@ -6,6 +6,7 @@ import { BackgroundPaths } from "@/components/ui/background-paths";
 import { PingPong } from "@/components/PingPong";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ServiceCard } from "@/components/ui/service-card";
 
 const About = () => {
   return (
@@ -55,6 +56,96 @@ const About = () => {
             </div>
           </div>
         </motion.div>
+      </div>
+      
+      {/* Services Section */}
+      <div className="bg-mediarch-dark/90 py-10 md:py-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-center mb-8 md:mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-mediarch mb-4">Our Services</h2>
+            <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
+              We provide a range of services designed to elevate your streaming career:
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <ServiceCard 
+                title="Renting Pods" 
+                description="Private, high-tech spaces for professional streaming."
+                price="399/hr"
+                icon="rocket"
+                variant="default"
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <ServiceCard 
+                title="Bronze Package" 
+                description="Learn the basics of streaming."
+                price="15,000 for 21 days"
+                icon="badge"
+                variant="bronze"
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <ServiceCard 
+                title="Silver Package" 
+                description="Grow your skills with 24/7 support and field-specific guidance."
+                price="25,000 for 21 days"
+                icon="star"
+                variant="silver"
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="sm:col-span-2 lg:col-span-1"
+            >
+              <ServiceCard 
+                title="Gold Package" 
+                description="Advanced mentorship, analytics, and community support."
+                price="49,999 for 49 days"
+                icon="gem"
+                variant="gold"
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="sm:col-span-2 lg:col-span-2"
+            >
+              <ServiceCard 
+                title="Diamond Package" 
+                description="Personalized coaching, industry exposure, and full-time guidance."
+                icon="diamond"
+                variant="diamond"
+              />
+            </motion.div>
+          </div>
+        </div>
       </div>
       
       {/* Ping Pong Game Section */}
