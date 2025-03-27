@@ -10,13 +10,13 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-r from-mediarch/5 to-mediarch-red/5 backdrop-blur-xl"></div>
       
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:grid-cols-5">
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <h2 className="text-2xl font-bold text-mediarch">MEDIARCH</h2>
             <p className="mt-4 max-w-md text-sm text-gray-400">
-              Bridging casual gaming and competitive esports through innovative 
-              tournaments, skill development programs, and a vibrant community.
+              Bridging casual gaming and competitive esports through innovative tournaments, 
+              skill development programs, and a vibrant community.
             </p>
             
             <div className="mt-6 flex space-x-4">
@@ -27,51 +27,38 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Navigation Links */}
+          {/* Quick Links (Previously Platform) */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Platform
+              Quick Links
             </h3>
             <FooterLinks 
               links={[
-                { name: "Tournaments", href: "#" },
-                { name: "Leaderboards", href: "#" },
-                { name: "Achievements", href: "#" },
-                { name: "Rewards", href: "#" },
-              ]} 
-            />
-          </div>
-          
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Company
-            </h3>
-            <FooterLinks 
-              links={[
+                { name: "Home", href: "/" },
                 { name: "About", href: "/about" },
-                { name: "Careers", href: "#" },
-                { name: "Blog", href: "#" },
                 { name: "Contact", href: "/contact" },
               ]} 
             />
           </div>
           
+          {/* Services (Previously Company) */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Resources
+              Services
             </h3>
             <FooterLinks 
               links={[
-                { name: "Documentation", href: "#" },
-                { name: "Guides", href: "#" },
-                { name: "Help Center", href: "#" },
-                { name: "FAQs", href: "#" },
+                { name: "Renting Pods", href: "/about" },
+                { name: "Bronze Package", href: "/about" },
+                { name: "Silver Package", href: "/about" },
+                { name: "Gold Package", href: "/about" },
+                { name: "Diamond Package", href: "/about" },
               ]} 
             />
           </div>
           
           {/* Newsletter Signup */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">
               Join Our Newsletter
             </h3>
