@@ -80,15 +80,15 @@ const Contact = () => {
     <div className="flex min-h-screen flex-col bg-mediarch-dark">
       <Navbar />
       
-      {/* Hero Section with Background Paths - Increased height to match About page */}
-      <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh]">
+      {/* Hero Section with Background Paths - Increased height for better visibility */}
+      <div className="relative h-[55vh] md:h-[65vh] lg:h-[75vh]">
         <div className="absolute inset-0 z-0 bg-mediarch-dark">
           <BackgroundPaths title="Contact Us" />
         </div>
       </div>
       
-      {/* Content Section - Moved below the hero section with same styling as About page */}
-      <div className="relative z-10 bg-mediarch-dark/95 py-8 md:py-12 lg:py-16">
+      {/* Content Section - Added more padding for better spacing */}
+      <div className="relative z-10 bg-mediarch-dark/95 py-10 md:py-14 lg:py-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
