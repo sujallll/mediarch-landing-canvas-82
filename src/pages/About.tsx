@@ -83,7 +83,6 @@ const About = () => {
               <ServiceCard 
                 title="Renting Pods" 
                 description="Private, high-tech spaces for professional streaming."
-                price="399/hr"
                 icon="rocket"
                 variant="default"
                 className="w-full"
@@ -99,7 +98,6 @@ const About = () => {
               <ServiceCard 
                 title="Bronze Package" 
                 description="Learn the basics of streaming."
-                price="15,000 for 21 days"
                 icon="badge"
                 variant="bronze"
                 className="w-full"
@@ -115,7 +113,6 @@ const About = () => {
               <ServiceCard 
                 title="Silver Package" 
                 description="Grow your skills with 24/7 support and field-specific guidance."
-                price="25,000 for 21 days"
                 icon="star"
                 variant="silver"
                 className="w-full"
@@ -131,7 +128,6 @@ const About = () => {
               <ServiceCard 
                 title="Gold Package" 
                 description="Advanced mentorship, analytics, and community support."
-                price="49,999 for 49 days"
                 icon="gem"
                 variant="gold"
                 className="w-full"
