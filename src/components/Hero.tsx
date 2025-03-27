@@ -34,21 +34,6 @@ export function Hero() {
           
           <div className="mt-8 md:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
             <StatsCard 
-              icon={<Icons.GameController className="h-5 w-5 text-mediarch" />}
-              value="50+"
-              label="Gaming Events"
-            />
-            <StatsCard 
-              icon={<Icons.Support className="h-5 w-5 text-mediarch" />}
-              value="24/7"
-              label="Support"
-            />
-            <StatsCard 
-              icon={<Icons.User className="h-5 w-5 text-mediarch" />}
-              value="1-on-1"
-              label="Personalized Mentorship"
-            />
-            <StatsCard 
               icon={<Icons.Server className="h-5 w-5 text-mediarch" />}
               value="100%"
               label="Seamless Backend Support"
@@ -62,21 +47,6 @@ export function Hero() {
               icon={<Icons.Star className="h-5 w-5 text-mediarch" />}
               value="Pro"
               label="Industry-Leading Guidance"
-            />
-            <StatsCard 
-              icon={<Icons.Video className="h-5 w-5 text-mediarch" />}
-              value="HD"
-              label="High-Definition Streaming"
-            />
-            <StatsCard 
-              icon={<Icons.Users className="h-5 w-5 text-mediarch" />}
-              value="Growing"
-              label="Community Support"
-            />
-            <StatsCard 
-              icon={<Icons.Trophy className="h-5 w-5 text-mediarch" />}
-              value="Expert"
-              label="Professional Training"
             />
           </div>
           
