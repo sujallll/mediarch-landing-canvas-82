@@ -8,7 +8,7 @@ import { Diamond, Star, Gem, Rocket, BadgeDollarSign } from "lucide-react";
 type ServiceCardProps = {
   title: string;
   description: string;
-  price?: string;
+  price?: string; // Keep this optional but ensure the component works without it
   icon: "diamond" | "star" | "gem" | "rocket" | "badge";
   variant?: "default" | "gold" | "silver" | "bronze" | "diamond";
   className?: string;
@@ -73,6 +73,7 @@ export function ServiceCard({
             />
           </div>
           <CardTitle className="text-lg md:text-xl text-white">{title}</CardTitle>
+          {/* Only render the price if it exists */}
           {price && (
             <CardDescription className="text-white/70 font-medium">
               {price}
