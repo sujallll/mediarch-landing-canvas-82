@@ -40,7 +40,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      // Properly unsubscribe to prevent memory leaks
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
@@ -75,6 +78,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         console.error("Sign out error:", error);
         throw error;
       }
+      
+      // Explicitly reset state after sign out
+      setSession(null);
+      setUser(null);
       
       console.log("Sign out successful");
     } catch (error) {

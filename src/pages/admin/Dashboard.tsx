@@ -58,6 +58,7 @@ const AdminDashboard = () => {
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -200,6 +201,7 @@ const AdminDashboard = () => {
     if (!selectedContact) return;
     
     try {
+      setIsDeleting(true);
       console.log("Deleting contact:", selectedContact.id);
       const { error } = await supabase
         .from("contacts")
@@ -211,8 +213,9 @@ const AdminDashboard = () => {
         throw error;
       }
 
-      // Update local state
-      setContacts(contacts.filter((c) => c.id !== selectedContact.id));
+      // Update local state safely - prevent state update issues after deletion
+      const contactId = selectedContact.id;
+      setContacts((prevContacts) => prevContacts.filter((c) => c.id !== contactId));
       
       toast({
         title: "Success",
@@ -222,6 +225,8 @@ const AdminDashboard = () => {
       // Close dialogs
       setIsDeleteDialogOpen(false);
       setIsDialogOpen(false);
+      // Clear selected contact after closing dialogs
+      setSelectedContact(null);
     } catch (error: any) {
       console.error("Error in confirmDeleteContact:", error);
       toast({
@@ -229,6 +234,8 @@ const AdminDashboard = () => {
         description: error.message || "Failed to delete contact",
         variant: "destructive",
       });
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -388,7 +395,9 @@ const AdminDashboard = () => {
         </div>
       </main>
       
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <Dialog open={isDialogOpen} onOpenChange={(open) => {
+        if (!isDeleting) setIsDialogOpen(open);
+      }}>
         <DialogContent className="bg-mediarch-dark border border-white/10 text-white">
           <DialogHeader>
             <DialogTitle className="text-mediarch">Contact Enquiry Details</DialogTitle>
@@ -430,6 +439,7 @@ const AdminDashboard = () => {
                   <Button
                     onClick={() => updateContactStatus(selectedContact.id, 'responded')}
                     className="bg-green-600 hover:bg-green-700 text-white"
+                    disabled={isDeleting}
                   >
                     <CheckCircle size={16} className="mr-2" />
                     Accept
@@ -438,6 +448,7 @@ const AdminDashboard = () => {
                     onClick={() => updateContactStatus(selectedContact.id, 'rejected')}
                     variant="outline"
                     className="border-red-500/30 text-red-500 hover:bg-red-500/10"
+                    disabled={isDeleting}
                   >
                     <XCircle size={16} className="mr-2" />
                     Reject
@@ -447,6 +458,7 @@ const AdminDashboard = () => {
                   onClick={() => handleDeleteContact(selectedContact)}
                   variant="outline"
                   className="border-white/10 text-white hover:bg-white/5"
+                  disabled={isDeleting}
                 >
                   <Trash2 size={16} className="mr-2" />
                   Delete
@@ -457,7 +469,9 @@ const AdminDashboard = () => {
         </DialogContent>
       </Dialog>
       
-      <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+      <AlertDialog open={isDeleteDialogOpen} onOpenChange={(open) => {
+        if (!isDeleting) setIsDeleteDialogOpen(open);
+      }}>
         <AlertDialogContent className="bg-mediarch-dark border border-white/10 text-white">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-white flex items-center gap-2">
@@ -469,14 +483,21 @@ const AdminDashboard = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="bg-transparent border-white/10 text-white hover:bg-white/5">
+            <AlertDialogCancel 
+              className="bg-transparent border-white/10 text-white hover:bg-white/5"
+              disabled={isDeleting}
+            >
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction 
-              onClick={confirmDeleteContact}
+              onClick={(e) => {
+                e.preventDefault();
+                confirmDeleteContact();
+              }}
               className="bg-red-600 hover:bg-red-700 text-white"
+              disabled={isDeleting}
             >
-              Delete
+              {isDeleting ? "Deleting..." : "Delete"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
