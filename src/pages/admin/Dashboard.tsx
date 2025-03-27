@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -72,17 +73,21 @@ const AdminDashboard = () => {
   const fetchContacts = async () => {
     setLoading(true);
     try {
+      console.log("Fetching contacts...");
       const { data, error } = await supabase
         .from("contacts")
         .select("*")
         .order("created_at", { ascending: false });
 
       if (error) {
+        console.error("Error fetching contacts:", error);
         throw error;
       }
 
+      console.log("Contacts fetched:", data);
       setContacts(data || []);
     } catch (error: any) {
+      console.error("Error in fetchContacts:", error);
       toast({
         title: "Error",
         description: error.message || "Failed to fetch contacts",
@@ -94,11 +99,25 @@ const AdminDashboard = () => {
   };
 
   const handleLogout = async () => {
-    await signOut();
-    navigate("/admin/login");
+    try {
+      await signOut();
+      toast({
+        title: "Success",
+        description: "Logged out successfully",
+      });
+      navigate("/admin/login");
+    } catch (error: any) {
+      console.error("Logout error:", error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to log out",
+        variant: "destructive",
+      });
+    }
   };
 
   const viewContact = async (contact: Contact) => {
+    console.log("Viewing contact:", contact);
     setSelectedContact(contact);
     setIsDialogOpen(true);
 
@@ -110,7 +129,10 @@ const AdminDashboard = () => {
           .update({ read: true })
           .eq("id", contact.id);
 
-        if (error) throw error;
+        if (error) {
+          console.error("Error marking as read:", error);
+          throw error;
+        }
 
         // Update local state
         setContacts(
@@ -119,6 +141,7 @@ const AdminDashboard = () => {
           )
         );
       } catch (error: any) {
+        console.error("Error in viewContact:", error);
         toast({
           title: "Error",
           description: error.message || "Failed to mark as read",
@@ -130,12 +153,16 @@ const AdminDashboard = () => {
 
   const updateContactStatus = async (contactId: string, status: ContactStatus) => {
     try {
+      console.log(`Updating contact ${contactId} status to ${status}`);
       const { error } = await supabase
         .from("contacts")
         .update({ status })
         .eq("id", contactId);
 
-      if (error) throw error;
+      if (error) {
+        console.error("Error updating status:", error);
+        throw error;
+      }
 
       // Update local state
       setContacts(
@@ -154,6 +181,7 @@ const AdminDashboard = () => {
         setSelectedContact((prev) => prev ? {...prev, status} : null);
       }
     } catch (error: any) {
+      console.error("Error in updateContactStatus:", error);
       toast({
         title: "Error",
         description: error.message || `Failed to update status to ${status}`,
@@ -163,6 +191,7 @@ const AdminDashboard = () => {
   };
 
   const handleDeleteContact = (contact: Contact) => {
+    console.log("Preparing to delete contact:", contact);
     setSelectedContact(contact);
     setIsDeleteDialogOpen(true);
   };
@@ -171,12 +200,16 @@ const AdminDashboard = () => {
     if (!selectedContact) return;
     
     try {
+      console.log("Deleting contact:", selectedContact.id);
       const { error } = await supabase
         .from("contacts")
         .delete()
         .eq("id", selectedContact.id);
 
-      if (error) throw error;
+      if (error) {
+        console.error("Error deleting contact:", error);
+        throw error;
+      }
 
       // Update local state
       setContacts(contacts.filter((c) => c.id !== selectedContact.id));
@@ -190,6 +223,7 @@ const AdminDashboard = () => {
       setIsDeleteDialogOpen(false);
       setIsDialogOpen(false);
     } catch (error: any) {
+      console.error("Error in confirmDeleteContact:", error);
       toast({
         title: "Error",
         description: error.message || "Failed to delete contact",
