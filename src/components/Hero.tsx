@@ -29,11 +29,10 @@ export function Hero() {
           </h1>
           
           <p className="mx-auto mt-4 md:mt-6 max-w-2xl text-base md:text-lg text-gray-300 opacity-0 animate-fadeIn" style={{ animationDelay: "600ms" }}>
-            Join the next generation of gaming excellence with Mediarch's immersive 
-            events and expert-led courses. Experience gaming like never before.
+            Join the next generation of streaming excellence with Mediarch's immersive events, expert-led courses, and personalized mentorship. Elevate your streaming career with cutting-edge resources, 24/7 support, and industry-leading guidance.
           </p>
           
-          <div className="mt-8 md:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
+          <div className="mt-8 md:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6 opacity-0 animate-fadeIn" style={{ animationDelay: "900ms" }}>
             <StatsCard 
               icon={<Icons.GameController className="h-5 w-5 text-mediarch" />}
               value="50+"
@@ -43,6 +42,41 @@ export function Hero() {
               icon={<Icons.Support className="h-5 w-5 text-mediarch" />}
               value="24/7"
               label="Support"
+            />
+            <StatsCard 
+              icon={<Icons.User className="h-5 w-5 text-mediarch" />}
+              value="1-on-1"
+              label="Personalized Mentorship"
+            />
+            <StatsCard 
+              icon={<Icons.Server className="h-5 w-5 text-mediarch" />}
+              value="100%"
+              label="Seamless Backend Support"
+            />
+            <StatsCard 
+              icon={<Icons.Clock className="h-5 w-5 text-mediarch" />}
+              value="24/7"
+              label="Always Available"
+            />
+            <StatsCard 
+              icon={<Icons.Star className="h-5 w-5 text-mediarch" />}
+              value="Pro"
+              label="Industry-Leading Guidance"
+            />
+            <StatsCard 
+              icon={<Icons.Video className="h-5 w-5 text-mediarch" />}
+              value="HD"
+              label="High-Definition Streaming"
+            />
+            <StatsCard 
+              icon={<Icons.Users className="h-5 w-5 text-mediarch" />}
+              value="Growing"
+              label="Community Support"
+            />
+            <StatsCard 
+              icon={<Icons.Trophy className="h-5 w-5 text-mediarch" />}
+              value="Expert"
+              label="Professional Training"
             />
           </div>
           
