@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Creators } from "@/components/Creators";
-import { Team } from "@/components/Team";
+import { YouTubeStats } from "@/components/YouTubeStats";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ServiceCard } from "@/components/ui/service-card";
@@ -115,7 +115,7 @@ const Index = () => {
           </div>
         </div>
         
-        <Team />
+        <YouTubeStats />
       </main>
       <Footer />
     </div>
