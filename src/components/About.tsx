@@ -28,28 +28,26 @@ export function About() {
               About Mediarch
             </h2>
             <p className="text-lg text-gray-300">
-              At Mediarch, we're revolutionizing the gaming landscape by combining 
-              competitive excellence with educational development. Our platform serves 
-              as a bridge between casual gaming and professional esports.
+              At Mediarch, we're redefining the streaming landscape by combining expert mentorship, 24/7 support, and immersive events. Our platform bridges the gap between aspiring creators and professional streamers, empowering them with the skills and tools to succeed. 🚀
             </p>
           </div>
           
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
             <FeatureCard 
-              icon={<Icons.Trophy />}
-              title="Professional Tournaments" 
+              icon={<Icons.User />}
+              title="Personalized Mentorship" 
+            />
+            <FeatureCard 
+              icon={<Icons.Shapes />}
+              title="Custom Branding & Merchandising" 
+            />
+            <FeatureCard 
+              icon={<Icons.Community />}
+              title="Community Support" 
             />
             <FeatureCard 
               icon={<Icons.Target />}
               title="Skill Development" 
-            />
-            <FeatureCard 
-              icon={<Icons.Community />}
-              title="Community Events" 
-            />
-            <FeatureCard 
-              icon={<Icons.Gaming />}
-              title="Gaming Excellence" 
             />
           </div>
         </div>
